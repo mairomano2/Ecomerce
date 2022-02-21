@@ -1,0 +1,46 @@
+@import "../variables/variables";
+
+.title{
+  font-family: $titleFont;
+  font-size: $titleSize;
+}
+
+.text{
+  font-family: $textFont; 
+  font-size: $textSize;
+  padding: 0px 10px;
+    color: white;
+
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+  background-color: $salmon;
+
+  .info{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .button{
+    font-family: $textFont;
+    font-size: $textSize;
+    background-color: $salmon;
+    color: $blue;
+    border-radius: 50px;
+    border-style: solid 1px;
+    border-color: $blue;
+    padding: 10px 20px;
+  }
+
+  .button:hover{
+    border-style: solid 1px $blue;
+    background-color: $blue;
+    color: white;
+    transition: 0.2s;
+  }
+}

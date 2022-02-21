@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap");
+.title {
+  font-family: "KoHo", sans-serif;
+  font-size: 30px;
+}
+
+.text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  padding: 0px 10px;
+  color: white;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+  background-color: #f87060;
+}
+
+nav .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+nav .button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: #f87060;
+  color: #102542;
+  border-radius: 50px;
+  border-style: solid 1px;
+  border-color: #102542;
+  padding: 10px 20px;
+}
+
+nav .button:hover {
+  border-style: solid 1px #102542;
+  background-color: #102542;
+  color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+/*# sourceMappingURL=Navbar.css.map */
