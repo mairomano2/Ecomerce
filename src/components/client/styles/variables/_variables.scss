@@ -1,15 +1,62 @@
 //FONTS
-
 //title
 @import url('https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap');
 $titleFont: 'KoHo', sans-serif;
-$titleSize: 30px;
+$titleSize: 50px;
+
+.title{
+  font-family: $titleFont;
+  font-size: $titleSize;
+  margin: 0;
+  font-weight: bold;
+}
+
+//subtitle
+$subtitleFont: 'KoHo', sans-serif;
+$subtitleSize: 20px;
+
+.subtitle{
+  font-family: $subtitleFont;
+  font-size: $subtitleSize;
+  margin: 0;
+  font-weight: bold;
+}
+
 //text
 $textFont: Verdana, Geneva, Tahoma, sans-serif;
 $textSize: 15px;
 
+.text{
+  font-family: $textFont; 
+  font-size: $textSize;
+  margin: 0;
+  font-weight: normal;
+}
+
+//MIXINS
+@mixin button{
+  width: fit-content;
+  padding: 10px;
+  color: $violet;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $violet;
+  margin-top: 40px;
+}
+
+@mixin buttonHover{
+  color: white;
+  background-color: $violet;
+  transition: 0.2s;
+}
+
 //COLORS
-$salmon: #f87060;
-$blue: #102542;
-// $yellow: #FFE1A8;
-// $green: #C9CBA3;
+$pink: #ff6996;
+$yellow: #fbb348;
+$violet: #6f5490;
+$lightblue: rgb(176, 230, 255);
+
+//IMAGE LINKS
+// https://iconos8.es/icons/dusk
+// https://iconos8.es/illustrations/style--bloom

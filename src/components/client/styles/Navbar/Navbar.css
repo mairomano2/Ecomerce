@@ -1,17 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap");
 .title {
   font-family: "KoHo", sans-serif;
-  font-size: 30px;
+  font-size: 50px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: "KoHo", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
 }
 
 .text {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
-  padding: 0px 10px;
-  color: white;
+  margin: 0;
+  font-weight: normal;
 }
 
 nav {
+  position: fixed;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,7 +36,7 @@ nav {
       -ms-flex-align: center;
           align-items: center;
   padding: 15px;
-  background-color: #f87060;
+  background-color: #6f5490;
 }
 
 nav .info {
@@ -41,17 +52,17 @@ nav .info {
 nav .button {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
-  background-color: #f87060;
-  color: #102542;
+  background-color: #ff6996;
+  color: #fbb348;
   border-radius: 50px;
   border-style: solid 1px;
-  border-color: #102542;
+  border-color: #fbb348;
   padding: 10px 20px;
 }
 
 nav .button:hover {
-  border-style: solid 1px #102542;
-  background-color: #102542;
+  border-style: solid 1px #fbb348;
+  background-color: #fbb348;
   color: white;
   -webkit-transition: 0.2s;
   transition: 0.2s;

@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap");
+.title {
+  font-family: "KoHo", sans-serif;
+  font-size: 50px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: "KoHo", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.footer {
+  background-color: #6f5490;
+  margin: 0;
+}
+/*# sourceMappingURL=footer.css.map */

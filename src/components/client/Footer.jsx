@@ -1,5 +1,7 @@
+import "./styles/footer/footer.css"
+
 export function Footer(){
   return(
-    <p>Footer</p>
+    <p className="footer">Footer</p>
   )
 }

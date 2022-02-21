@@ -1,0 +1,157 @@
+@import "../variables/variables";
+
+.hero{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 70px 0px;
+  background-color: $lightblue;
+
+  .heroText{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .heroTitle{
+      margin: 30px;
+    }
+
+    .heroButton{
+      @include button
+    }
+
+    .heroButton:hover{
+      @include buttonHover
+    }
+  }
+
+  .heroImg{
+    width: 500px;
+  }
+
+  @media (max-width: 768px) {
+    .heroImg{
+      width: 300px;
+    }
+  }
+}
+
+.info{
+  margin: 55px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .infoTitle{
+    padding: 30px;
+  }
+
+  .cardContainer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+    width: 200px;
+    background-color: $lightblue;
+    padding: 20px;
+    border-radius: 20px;
+
+    .cardHeader{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-bottom: 10px;
+    }
+
+    img{
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+      @media (max-width: 768px) {
+      .card{
+        margin: 15px
+      }
+    }
+}
+
+.price{
+  height: 90vh;
+  background-color: $lightblue;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .priceImg{
+    height: 400px;
+  }
+
+  .priceTitle{
+    font-family: $titleFont;
+    font-size: 70px;
+    margin: 40px 0px;
+  }
+
+  .priceSubtitle{
+    font-family: $subtitleFont;
+    font-size: 30px;
+    margin: 0;
+  }
+
+  .priceButton{
+    @include button;
+  }
+
+  .priceButton:hover{
+    @include buttonHover
+  }
+}
+
+.contact{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 50px 0px;
+
+  .formTitle{
+    text-align: center;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $lightblue;
+    padding: 30px;
+    border-radius: 30px;
+
+    .input{
+      margin: 10px;
+      padding: 10px;
+      border-color: $lightblue;
+      border-style: solid 2px;
+      border-radius: 10px;
+    }
+
+    .formButton{
+      @include button
+    }
+
+    .formButton:hover{
+      @include buttonHover
+    }
+  }
+}
