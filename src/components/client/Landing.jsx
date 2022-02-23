@@ -8,7 +8,7 @@ import "./styles/landing/landing.css"
 
 export function Landing() {
   return (
-    <div>
+    <main>
       <section className="hero">
         <div className="heroText">
           <h1 className="title heroTitle">Crea tu propia tienda online</h1>
@@ -82,6 +82,6 @@ export function Landing() {
           <button  type="submit" id="sumbit" className="formButton">Enviar</button>
         </form>
       </section>
-    </div>
+    </main>
   )
 }

@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=KoHo:wght@300&display=swap");
+.title {
+  font-family: "KoHo", sans-serif;
+  font-size: 50px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-family: "KoHo", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 15px;
+  margin: 0;
+  font-weight: normal;
+}
+
+.errorPage {
+  height: 90vh;
+  padding-top: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #b0e6ff;
+}
+
+.errorPage .button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px;
+  color: #6f5490;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #6f5490;
+  margin-top: 40px;
+  margin: 10px 0;
+}
+
+.errorPage .button:hover {
+  color: white;
+  background-color: #6f5490;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.errorPage img {
+  width: 500px;
+}
+/*# sourceMappingURL=errorPage.css.map */

@@ -4,13 +4,15 @@ import "./styles/Navbar/Navbar.css";
 
 export function Navbar() {
   return (
-    <nav>
-      <p>Nav</p>
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/login" element={<LogIn />} />
-        </Routes>
-      </BrowserRouter> */}
-    </nav>
+    <header>
+      <nav>
+        <p>Nav</p>
+        {/* <BrowserRouter>
+          <Routes>
+            <Route path="/login" element={<LogIn />} />
+          </Routes>
+        </BrowserRouter> */}
+      </nav>
+    </header>
   )
 }
