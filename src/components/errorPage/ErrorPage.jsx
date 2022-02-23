@@ -10,7 +10,7 @@ export function ErrorPage() {
       <div className="errorPage">
         <div>
           <h1 className="title">Oops!</h1>
-          <p className="subtitle">No pudimos encontrar la pagina que estas buscando</p>
+          <p className="subtitle">No pudimos encontrar la pagina que estas buscando.</p>
           <p className="text"></p>
           <button className="button">Ir a la pagina principal</button>
           <p className="text">Error code: 404</p>
