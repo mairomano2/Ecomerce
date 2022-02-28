@@ -1,6 +1,6 @@
 import "./styles/footer/footer.css"
 
-export function Footer() {
+export const FooterClient = () => {
   return (
     <footer>
       <p className="footer">Footer</p>

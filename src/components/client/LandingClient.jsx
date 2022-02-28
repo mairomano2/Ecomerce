@@ -6,7 +6,7 @@ import hand from "./assets/hand.png"
 import price from "./assets/price.png"
 import "./styles/landing/landing.css"
 
-export function Landing() {
+export const LandingClient = () => {
   return (
     <main>
       <section className="hero">
@@ -79,7 +79,7 @@ export function Landing() {
           </label>
           <p></p>
           <textarea required className="input" name="comentarios" id="comentarios" cols="30" rows="10" placeholder="Tu mensaje" />
-          <button  type="submit" id="sumbit" className="formButton">Enviar</button>
+          <button type="submit" id="sumbit" className="formButton">Enviar</button>
         </form>
       </section>
     </main>

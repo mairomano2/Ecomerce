@@ -1,4 +1,4 @@
-export function Payment() {
+export const Payment = () => {
   return(
     <div>payment</div>
   )

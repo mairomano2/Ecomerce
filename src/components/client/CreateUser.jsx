@@ -1,4 +1,4 @@
-export function CreateUser() {
+export const CreateUser = () => {
   return(
     <div>CreateUser</div>
   )

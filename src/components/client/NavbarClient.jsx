@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LogIn } from "./LogIn"
 import "./styles/Navbar/Navbar.css";
 
-export function Navbar() {
+export const NavbarClient = () => {
   return (
     <header>
       <nav>

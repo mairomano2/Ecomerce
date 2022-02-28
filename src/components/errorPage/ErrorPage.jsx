@@ -1,12 +1,12 @@
-import { Navbar } from "../client/Navbar"
-import { Footer } from "../client/Footer"
+import { NavbarClient } from "../client/NavbarClient"
+import { FooterClient } from "../client/FooterClient"
 import errorImage from "../client/assets/notFound.png"
 import "./styles/errorPage.css"
 
-export function ErrorPage() {
+export const ErrorPage = () => {
   return (
     <div className="">
-      <Navbar />
+      <NavbarClient />
       <div className="errorPage">
         <div>
           <h1 className="title">Oops!</h1>
@@ -17,7 +17,7 @@ export function ErrorPage() {
         </div>
         <img src={errorImage} alt="" />
       </div>
-      <Footer />
+      <FooterClient />
     </div>
   )
 }

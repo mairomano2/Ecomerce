@@ -1,4 +1,4 @@
-export function LogIn(){
+export const LogIn = () => {
   return(
     <div>log in</div>
   )
