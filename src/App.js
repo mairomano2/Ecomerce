@@ -13,12 +13,12 @@ import { LandingUser } from "./components/user/LandingUser"
 function App() {
   return (
     <div>
-      <NavbarUser />
-      <LandingUser />
-      {/* <ErrorPage />
+      {/* <NavbarUser />
+      <LandingUser /> */}
+      {/* <ErrorPage /> */}
       <NavbarClient />
       <LandingClient />
-      <FooterClient /> */}
+      <FooterClient />
     </div>
   )
 }
