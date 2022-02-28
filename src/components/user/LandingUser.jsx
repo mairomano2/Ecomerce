@@ -1,4 +1,5 @@
 import { Button } from "./Button"
+import { ItemCount } from "./ItemCount"
 import "./styles/landingUser/landingUser.css"
 
 export const LandingUser = () => {
@@ -10,6 +11,7 @@ export const LandingUser = () => {
         <Button className="text" texto="Contacto" />
         <Button className="text" texto="Ver productos" />
       </div>
+      <ItemCount initial={1} stock={5} />
     </div>
   )
 }
