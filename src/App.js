@@ -7,18 +7,18 @@ import { FooterClient } from "./components/client/FooterClient"
 import { ErrorPage } from "./components/errorPage/ErrorPage"
 
 //imports user
-import { NavbarUser } from "./components/user/Navbar"
-import { LandingUser } from "./components/user/LandingUser"
+import { NavbarUser } from "./components/user/NavbarUser"
+import { ItemListContainer } from "./components/user/ItemListContainer"
 
 function App() {
   return (
     <div>
-      {/* <NavbarUser />
-      <LandingUser /> */}
-      {/* <ErrorPage /> */}
-      <NavbarClient />
+      <NavbarUser />
+      <ItemListContainer /> 
+      {/* <ErrorPage />
+      {/* <NavbarClient />
       <LandingClient />
-      <FooterClient />
+      <FooterClient /> */}
     </div>
   )
 }

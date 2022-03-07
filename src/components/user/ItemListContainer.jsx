@@ -2,7 +2,7 @@ import { Button } from "./Button"
 import { ItemCount } from "./ItemCount"
 import "./styles/landingUser/landingUser.css"
 
-export const LandingUser = () => {
+export const ItemListContainer = () => {
   return (
     <div className="landing">
       <h1 className="title">Bienvenidx a bordate algo!</h1>
