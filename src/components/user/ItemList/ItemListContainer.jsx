@@ -1,0 +1,63 @@
+import { useEffect, useState } from "react"
+import { ItemList } from "./ItemList"
+import "../styles/ItemListContainer/ItemListContainer.css"
+
+const prods = [
+  {
+    id: 1,
+    title: "shirt",
+    price: 100,
+  },
+
+  {
+    id: 2,
+    title: "socks",
+    price: 200,
+  },
+
+  {
+    id: 3,
+    title: "shoes",
+    price: 300
+  }
+]
+
+export const ItemListContainer = () => {
+
+  const [loading, setLoading] = useState(true)
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const request = new Promise((res, rej) => {
+      setTimeout(() => {
+        res(prods)
+      }, 2000)
+    })
+
+    request
+      .then((resultado) => {
+        setProducts(resultado)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+
+      .finally(() => setLoading(false))
+
+  }, [])
+
+  return (
+    <div className="landing">
+      <h1 className="title">Bienvenidx a bordate algo!</h1>
+      <p className="subtitle">Conoce todos nuestros productos</p>
+      <div>
+        {loading ?  <p>Cargando productos...</p> : <ItemList products={products} />}
+      </div>
+    </div>
+  )
+}
+
+//TODO en este componente se crean los estados y la promesa de los productos
+//mover el contador a otro lado (puede incluso estar comentado) en app para no perderlo
+//se pasa el array de productos a item list y se hace el map
+//se pasa por prop el array y en item se hace el maquetado del componente

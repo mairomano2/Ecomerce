@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { LogIn } from "./LogIn"
+import { LogIn } from "./registerForms/LogIn"
 import "./styles/Navbar/Navbar.css";
 
 export const NavbarClient = () => {
