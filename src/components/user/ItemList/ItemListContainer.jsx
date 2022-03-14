@@ -56,8 +56,3 @@ export const ItemListContainer = () => {
     </div>
   )
 }
-
-//TODO en este componente se crean los estados y la promesa de los productos
-//mover el contador a otro lado (puede incluso estar comentado) en app para no perderlo
-//se pasa el array de productos a item list y se hace el map
-//se pasa por prop el array y en item se hace el maquetado del componente
