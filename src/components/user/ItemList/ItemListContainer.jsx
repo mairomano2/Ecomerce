@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { ItemList } from "./ItemList"
+import { useParams } from "react-router-dom"
 import "../styles/ItemListContainer/ItemListContainer.css"
 
 const prods = [
@@ -27,6 +28,8 @@ export const ItemListContainer = () => {
   const [loading, setLoading] = useState(true)
   const [products, setProducts] = useState([])
 
+  const {categoryId} = useParams()
+
   useEffect(() => {
     const request = new Promise((res, rej) => {
       setTimeout(() => {
@@ -44,7 +47,7 @@ export const ItemListContainer = () => {
 
       .finally(() => setLoading(false))
 
-  }, [])
+  }, [categoryId])
 
   return (
     <div className="landing">
