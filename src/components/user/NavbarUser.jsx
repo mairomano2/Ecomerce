@@ -1,5 +1,6 @@
 import { CartWidget } from "./CartWidget"
 import { Link } from "react-router-dom"
+import "../client/styles/Navbar/Navbar.css"
 
 export const NavbarUser = () => {
   return(

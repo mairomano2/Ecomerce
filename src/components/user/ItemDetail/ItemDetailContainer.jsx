@@ -28,8 +28,7 @@ export const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
 
-  const { productId } = useParams()
-  console.log(productId)
+  const {productId} = useParams()
 
   useEffect(() => {
     const request = new Promise((res, rej) => {
@@ -39,10 +38,9 @@ export const ItemDetailContainer = () => {
     })
 
     request
-      .then(res => {
-          setProduct(res.find(prods => prods.id === productId))
-      })
-      .then(res => console.log(prods))
+    .then((product)=>{
+      setProduct(product.find(product => product.id == productId))}
+      )
 
       .catch((error) => {
         console.log(error)
@@ -54,7 +52,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <div className="landing">
-      {loading ? <p>Cargando productos...</p> : <ItemDetail key={product.id} product={product} />}
+      {loading ? <p className="text">Cargando productos...</p> : <ItemDetail key={product.id} product={product} />}
     </div>
   )
 
