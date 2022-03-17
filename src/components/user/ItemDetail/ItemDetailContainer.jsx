@@ -31,7 +31,7 @@ export const ItemDetailContainer = () => {
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
 
-  const {productId} = useParams()
+  const { productId } = useParams()
 
   useEffect(() => {
     const request = new Promise((res, rej) => {
@@ -41,8 +41,9 @@ export const ItemDetailContainer = () => {
     })
 
     request
-    .then((product)=>{
-      setProduct(product.find(product => product.id == productId))}
+      .then((product) => {
+        setProduct(product.find(product => product.id == productId))
+      }
       )
 
       .catch((error) => {

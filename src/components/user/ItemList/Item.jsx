@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 
-export const Item = ({product}) => {
+export const Item = ({ product }) => {
 
-  return(
+  return (
     <div className="card">
-      <p>{product.title}</p>
-      <p>{product.price}</p>
-      <Link to={`/productDetail/${product.id}`}>Ver detalle</Link>
+      <p className="text">{product.title}</p>
+      <p className="text">{product.price}</p>
+      <Link className="text" to={`/productDetail/${product.id}`}>Ver detalle</Link>
     </div>
   )
 }
