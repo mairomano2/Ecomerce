@@ -10,18 +10,21 @@ export const ItemDetailContainer = () => {
       id: 1,
       title: "shirt",
       price: 100,
+      category: "shirts",
     },
 
     {
       id: 2,
       title: "socks",
       price: 200,
+      category: "socks",
     },
 
     {
       id: 3,
       title: "shoes",
-      price: 300
+      price: 300,
+      category: "shoes",
     }
   ]
 

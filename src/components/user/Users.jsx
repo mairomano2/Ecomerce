@@ -10,7 +10,7 @@ export const Users = () => {
     <NavbarUser/>
       <Routes>
         <Route path="/" element={<ItemListContainer />} />
-        {/* <Route path="/category/:categoryId" element={<ItemListContainer />}/> */}
+        <Route path="/category/:categoryId" element={<ItemListContainer />}/>
         <Route path="/productDetail/:productId" element={<ItemDetailContainer />} />
         <Route path="/cart" element={<Cart/>} />
       </Routes>

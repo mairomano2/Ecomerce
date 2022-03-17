@@ -3,25 +3,28 @@ import { ItemList } from "./ItemList"
 import { useParams } from "react-router-dom"
 import "../styles/ItemListContainer/ItemListContainer.css"
 
-const prods = [
-  {
-    id: 1,
-    title: "shirt",
-    price: 100,
-  },
+  const prods = [
+    {
+      id: 1,
+      title: "shirt",
+      price: 100,
+      category: "shirts",
+    },
 
-  {
-    id: 2,
-    title: "socks",
-    price: 200,
-  },
+    {
+      id: 2,
+      title: "socks",
+      price: 200,
+      category: "socks",
+    },
 
-  {
-    id: 3,
-    title: "shoes",
-    price: 300
-  }
-]
+    {
+      id: 3,
+      title: "shoes",
+      price: 300,
+      category: "shoes",
+    }
+  ]
 
 export const ItemListContainer = () => {
 
@@ -37,10 +40,28 @@ export const ItemListContainer = () => {
       }, 2000)
     })
 
-    request
-      .then((resultado) => {
-        setProducts(resultado)
-      })
+    request.then((result) => {
+      setProducts(
+        categoryId == undefined ? result : result.filter( prods => prods.category == categoryId))
+
+        console.log(result)
+    })
+
+    // request.then((result) => {
+		// 	setProducts( 
+		// 		catID==undefined?result:result.filter( (value) => value.category == catID )
+		// 	)
+
+    // .then((result) => {
+    //   if(categoryId){
+    //     setProducts(result)
+    //   }else{
+    //   (product)=>{
+    //   setProduct(product.find(product => product.id == productId))}
+    //     console.log(products)}
+    //   })
+
+      
       .catch((error) => {
         console.log(error)
       })
