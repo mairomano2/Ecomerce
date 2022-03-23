@@ -7,22 +7,23 @@ const { Provider } = context
 
 export const ContextProvider = ({ children }) => {
 
-  const [cart, setCart] = useState(undefined)
+  const [cart, setCart] = useState([])
   const [quantity, setQuantity] = useState(0)
   const [total, setTotal] = useState(0)
 
   const addItem = (product, quantity) => {
     const cartCopy = [...cart]
-    const quntAdded = [...product, quantity]
-
+    const qntAdded = {...product, quantity}
+    
     if (isInCart(product.id)) {
       let position = cartCopy.findIndex(item => item.id == product.id)
       cartCopy[position].quantity += quantity
       setCart(cartCopy)
     } else {
-      cartCopy.push(quntAdded)
+      cartCopy.push(qntAdded)
       setCart(cartCopy)
     }
+    console.log(cart)
   }
 
   const isInCart = (id) => {
@@ -54,8 +55,6 @@ export const ContextProvider = ({ children }) => {
   )
 }
 
-export default ContextProvider
-
-//TODO aca van las funciones de agregar un item con su cantidad, sacar un solo producto del carrito segun el id y borrar todo el carrito
-//para el ver si un item esta o no en el carrito se chequea segun el id con un true o false. puede ser un .find
-//pasar por prop en value las funciones
+// TODO
+// el cart esta actualizado pero en consola no se actualiza cuando tengo algo en el cart y agrego un segundo producto
+//ver que el boton de remove item borra todo el carrito, no un producto en especifico

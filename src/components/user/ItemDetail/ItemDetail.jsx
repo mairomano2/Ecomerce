@@ -1,6 +1,6 @@
 import { useState, useContext } from "react"
 import { ItemCount } from "../ItemCount"
-import { ContextProvider } from "../context/CartContext"
+import { context, ContextProvider } from "../context/CartContext"
 import { Link } from "react-router-dom"
 
 export const ItemDetail = ({ product }) => {
@@ -8,10 +8,7 @@ export const ItemDetail = ({ product }) => {
   const [clicked, setClicked] = useState(false)
   const [selectedProduct, setSelectedProduct] = useState({})
 
-
-  const { addItem } = useContext(ContextProvider)
-  console.log(addItem)
-
+  const { addItem } = useContext(context)
 
   const onAdd = (qnt) => {
     setSelectedProduct(qnt)
