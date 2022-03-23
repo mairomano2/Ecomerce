@@ -1,12 +1,21 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { ItemCount } from "../ItemCount"
+import { ContextProvider } from "../context/CartContext"
 import { Link } from "react-router-dom"
 
 export const ItemDetail = ({ product }) => {
 
   const [clicked, setClicked] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState({})
 
-  const onAdd = () => {
+
+  const { addItem } = useContext(ContextProvider)
+  console.log(addItem)
+
+
+  const onAdd = (qnt) => {
+    setSelectedProduct(qnt)
+    addItem(product, qnt)
     setClicked(true)
   }
 

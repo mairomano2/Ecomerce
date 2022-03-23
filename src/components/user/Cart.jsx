@@ -4,7 +4,6 @@ import { context } from "./context/CartContext"
 export const Cart = () => {
 
   const { carrito, total } = useContext(context)
-  console.log(total)
 
   return (
     <div className="landing">

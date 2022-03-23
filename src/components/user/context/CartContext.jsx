@@ -10,18 +10,27 @@ export const ContextProvider = ({ children }) => {
   const [cart, setCart] = useState(undefined)
   const [quantity, setQuantity] = useState(0)
   const [total, setTotal] = useState(0)
-  
-  const addItem = (item, quantity) => {
-    const added = cart.find(itemId => itemId == cart.id)
-    if(added){
-      setCart( /* ...ITEM, CANTIDAD VIEJA + CANTIDAD QUE SE AGREGA AHORA */)
-    }else{
-      setCart(...cart, { item, quantity })
+
+  const addItem = (product, quantity) => {
+    const cartCopy = [...cart]
+    const quntAdded = [...product, quantity]
+
+    if (isInCart(product.id)) {
+      let position = cartCopy.findIndex(item => item.id == product.id)
+      cartCopy[position].quantity += quantity
+      setCart(cartCopy)
+    } else {
+      cartCopy.push(quntAdded)
+      setCart(cartCopy)
     }
   }
 
-  const removeItem = () => {
-    let newCart = cart.filter(itemId => itemId == cart.id)
+  const isInCart = (id) => {
+    return cart.some((product) => product.id == id)
+  }
+
+  const removeItem = (product) => {
+    let newCart = cart.filter(itemId => itemId == product.id)
     setCart(newCart)
   }
 
@@ -35,7 +44,8 @@ export const ContextProvider = ({ children }) => {
     total: total,
     addItem: addItem,
     removeItem: removeItem,
-    clearCart: clearCart  }
+    clearCart: clearCart
+  }
 
   return (
     <Provider value={value}>
@@ -43,6 +53,8 @@ export const ContextProvider = ({ children }) => {
     </Provider>
   )
 }
+
+export default ContextProvider
 
 //TODO aca van las funciones de agregar un item con su cantidad, sacar un solo producto del carrito segun el id y borrar todo el carrito
 //para el ver si un item esta o no en el carrito se chequea segun el id con un true o false. puede ser un .find
