@@ -1,30 +1,9 @@
 import { useEffect, useState } from "react"
 import { ItemList } from "./ItemList"
 import { useParams } from "react-router-dom"
+import { db } from "../firebase"
+import { collection, collectionGroup, getDocs } from "firebase/firestore"
 import "../styles/ItemListContainer/ItemListContainer.css"
-
-const prods = [
-  {
-    id: 1,
-    title: "shirt",
-    price: 100,
-    category: "shirts",
-  },
-
-  {
-    id: 2,
-    title: "socks",
-    price: 200,
-    category: "socks",
-  },
-
-  {
-    id: 3,
-    title: "shoes",
-    price: 300,
-    category: "shoes",
-  }
-]
 
 export const ItemListContainer = () => {
 
@@ -34,22 +13,27 @@ export const ItemListContainer = () => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    const request = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(prods)
-      }, 2000)
-    })
-
-    request.then((result) => {
-      setProducts(
-        categoryId == undefined ? result : result.filter(prods => prods.category == categoryId))
-    })
+    const productsCollection = collection(db, "products")
+    const request = getDocs(productsCollection)
+      .then(resultado => {
+        const resultArray = resultado.docs.map(doc => {
+          return { id: doc.id, ...doc.data() }
+        })
+        console.log(resultArray)
+        setProducts(resultArray)
+      })
 
       .catch((error) => {
         console.log(error)
       })
 
       .finally(() => setLoading(false))
+
+    // request.then((result) => {
+    //   setProducts(
+    //     categoryId == undefined ? result : result.filter(prods => prods.category == categoryId))
+    // })
+
 
   }, [categoryId])
 

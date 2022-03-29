@@ -19,7 +19,7 @@ export const ItemDetail = ({ product }) => {
   return (
     <div className="card">
       <p className="text">{product.title}</p>
-      <p className="text">{product.id}</p>
+      <p className="text">{product.description}</p>
       <p className="text">{product.price}</p>
       {clicked ? (<Link to="/cart">Ir al carrito</Link>) : (<ItemCount initial={1} stock={5} onAdd={onAdd} />)}
     </div>
