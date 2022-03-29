@@ -1,5 +1,4 @@
-import { createContext } from "react"
-import { useState } from "react"
+import { createContext, useState } from "react"
 
 export const context = createContext()
 
@@ -8,41 +7,39 @@ const { Provider } = context
 export const ContextProvider = ({ children }) => {
 
   const [cart, setCart] = useState([])
-  const [quantity, setQuantity] = useState(0)
-  const [total, setTotal] = useState(0)
-
-  const addItem = (product, quantity) => {
-    const cartCopy = [...cart]
-    const qntAdded = {...product, quantity}
-    
-    if (isInCart(product.id)) {
-      let position = cartCopy.findIndex(item => item.id == product.id)
-      cartCopy[position].quantity += quantity
-      setCart(cartCopy)
-    } else {
-      cartCopy.push(qntAdded)
-      setCart(cartCopy)
-    }
-    console.log(cart)
-  }
+  const total = cart.reduce((previousTotal, currentProduct) => previousTotal + (currentProduct.price * currentProduct.quantity), 0)
+  const quantity = cart.reduce((previousQuantity, currentProduct) => previousQuantity + currentProduct.quantity, 0)
+  
 
   const isInCart = (id) => {
-    return cart.some((product) => product.id == id)
+    return cart.some((product) => product.id === id)
   }
 
-  const removeItem = (product) => {
-    let newCart = cart.filter(itemId => itemId == product.id)
-    setCart(newCart)
+  const addItem = (product, quantity) => {
+    const qntAdded = { ...product, quantity }
+
+    if (isInCart(product.id)) {
+      const cartCopy = [...cart]
+      const position = cartCopy.findIndex(item => item.id === product.id)
+      cartCopy[position] = { ...cartCopy[position], quantity: cartCopy[position].quantity + quantity }
+      setCart(cartCopy)
+    } else {
+      setCart([...cart, qntAdded])
+    }
+  }
+
+  const removeItem = product => {
+    setCart(cart.filter(itemId => itemId.id !== product.id))
   }
 
   const clearCart = () => {
-    setCart([]);
+    setCart([])
   }
 
   const value = {
     cart: cart,
-    quantity: quantity,
     total: total,
+    quantity: quantity,
     addItem: addItem,
     removeItem: removeItem,
     clearCart: clearCart
@@ -56,5 +53,6 @@ export const ContextProvider = ({ children }) => {
 }
 
 // TODO
-// el cart esta actualizado pero en consola no se actualiza cuando tengo algo en el cart y agrego un segundo producto
-//ver que el boton de remove item borra todo el carrito, no un producto en especifico
+//ver que el boton de remove item borra todo el carrito, no un producto en especifico, poner todos los hooks en un import
+//en remove filtrar segun el estado anterior
+//pasar is in cart 

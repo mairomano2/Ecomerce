@@ -1,14 +1,15 @@
-import cart from "./assets/cart.png"
+import cartImg from "./assets/cart.png"
 import { useContext } from "react"
 import { context } from "./context/CartContext"
-import { Component } from "react/cjs/react.production.min"
 
 export const CartWidget = () => {
-  const { quantity, cart } = useContext(context)
+  const { quantity } = useContext(context)
+
+  
 
   return (
     <div>
-      <img src={cart} />
+      <img src={cartImg} />
       <span>{quantity}</span>
     </div>
 

@@ -24,3 +24,5 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     </div>
   )
 }
+
+//TODO cambiar el ternario por un if + ver de poner valores previos (ver chat de discord con roy)

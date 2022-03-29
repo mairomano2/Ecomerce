@@ -59,5 +59,4 @@ export const ItemDetailContainer = () => {
       {loading ? <p className="text">Cargando productos...</p> : <ItemDetail key={product.id} product={product} />}
     </div>
   )
-
 }
