@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { context } from "./context/CartContext"
+import { Footer } from "./Footer"
 
 export const Cart = () => {
 
@@ -29,6 +30,8 @@ export const Cart = () => {
           <button onClick={clearCart}>Borrar todos los productos</button>
         </>
       }
+      <Footer />
+
     </div>
 
   )

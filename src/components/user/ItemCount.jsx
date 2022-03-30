@@ -4,11 +4,11 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
   const [counter, setCounter] = useState(initial)
 
   const add = () => {
-    counter < stock ? setCounter(counter + 1) : alert("No hay mas stock")
+    counter < stock ? setCounter(prevCount => prevCount + 1) : alert("No hay mas stock")
   }
 
   const subtract = () => {
-    counter > initial ? setCounter(counter - 1) : alert("Elija otra cantidad de productos")
+    counter > initial ? setCounter(prevCount => prevCount - 1) : alert("Elija otra cantidad de productos")
   }
 
   const handleAddCart = () => {
@@ -24,5 +24,3 @@ export const ItemCount = ({ initial, stock, onAdd }) => {
     </div>
   )
 }
-
-//TODO cambiar el ternario por un if + ver de poner valores previos (ver chat de discord con roy)

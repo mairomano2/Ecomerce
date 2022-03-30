@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { ItemList } from "./ItemList"
+import { Footer } from "../Footer"
 import { useParams } from "react-router-dom"
 import { db } from "../firebase"
-import { collection, collectionGroup, getDocs } from "firebase/firestore"
+import { collection, getDocs, query, where } from "firebase/firestore"
 import "../styles/ItemListContainer/ItemListContainer.css"
 
 export const ItemListContainer = () => {
@@ -13,37 +14,41 @@ export const ItemListContainer = () => {
   const { categoryId } = useParams()
 
   useEffect(() => {
-    const productsCollection = collection(db, "products")
-    const request = getDocs(productsCollection)
-      .then(resultado => {
-        const resultArray = resultado.docs.map(doc => {
-          return { id: doc.id, ...doc.data() }
+
+    if (!categoryId) {
+      const productsCollection = collection(db, "products")
+      const request = getDocs(productsCollection)
+
+        .then(res => {
+          setProducts(res.docs.map(doc => { return { id: doc.id, ...doc.data() } }))
         })
-        console.log(resultArray)
-        setProducts(resultArray)
-      })
 
-      .catch((error) => {
-        console.log(error)
-      })
+        .catch((error) => { console.log(error) })
 
-      .finally(() => setLoading(false))
+        .finally(() => setLoading(false))
+    } else {
+      const productsCollection = collection(db, "products")
+      const filter = query(productsCollection, where("category", "==", categoryId))
+      const request = getDocs(filter)
 
-    // request.then((result) => {
-    //   setProducts(
-    //     categoryId == undefined ? result : result.filter(prods => prods.category == categoryId))
-    // })
+      request
+        .then(res => {
+          setProducts(res.docs.map(doc => { return { id: doc.id, ...doc.data() } }))
+        })
+        .catch((error) => { console.log(error) })
 
-
+        .finally(() => setLoading(false))
+    }
   }, [categoryId])
 
   return (
-    <div className="landing">
+    <main className="landing">
       <h1 className="title">Bienvenidx a bordate algo!</h1>
       <p className="subtitle">Conoce todos nuestros productos</p>
       <div className="items">
         {loading ? <p>Cargando productos...</p> : <ItemList products={products} />}
       </div>
-    </div>
+      <Footer />
+    </main>
   )
 }

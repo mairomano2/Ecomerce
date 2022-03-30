@@ -51,8 +51,3 @@ export const ContextProvider = ({ children }) => {
     </Provider>
   )
 }
-
-// TODO
-//ver que el boton de remove item borra todo el carrito, no un producto en especifico, poner todos los hooks en un import
-//en remove filtrar segun el estado anterior
-//pasar is in cart 

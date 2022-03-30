@@ -1,0 +1,8 @@
+@import "../../../client/styles/variables/variables";
+
+.footer{
+  background-color: $violet ;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+}
