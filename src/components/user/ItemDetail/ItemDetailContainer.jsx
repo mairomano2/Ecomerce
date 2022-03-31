@@ -14,13 +14,13 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     const productsCollection = collection(db, "products")
+    // const filter = doc(productsCollection, "")
     const request = getDoc(doc(productsCollection, productId))
+    console.log(request)
 
     request
       .then(res => {
-        setProduct(res.docs.map(doc => doc.data())[0])
-        setProduct(res.doc[0].data().id)
-        console.log(product)
+        setProduct(res.data())
         })
         
       .catch((error) => {

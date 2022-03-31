@@ -20,8 +20,8 @@ export const Cart = () => {
           (
             <div key={product.id}>
               <p>{product.title}</p>
-              <p>{product.price}</p>
-              <p>{product.quantity}</p>
+              <p>Precio: ${product.price}</p>
+              <p>Cantidad: {product.quantity}</p>
               <p>Total parcial: {product.price * product.quantity}</p>
               <button onClick={() => removeItem(product)}>Borrar producto</button>
             </div>
