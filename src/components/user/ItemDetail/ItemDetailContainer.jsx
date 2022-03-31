@@ -1,32 +1,11 @@
 import { useEffect, useState } from "react"
 import { ItemDetail } from "./ItemDetail"
 import { useParams } from "react-router-dom"
+import { db } from "../firebase"
+import { collection, doc, getDoc } from "firebase/firestore"
 import "../styles/ItemDetailContainer/ItemDetailContainer.css"
 
 export const ItemDetailContainer = () => {
-
-  const prods = [
-    {
-      id: 1,
-      title: "shirt",
-      price: 100,
-      category: "shirts",
-    },
-
-    {
-      id: 2,
-      title: "socks",
-      price: 200,
-      category: "socks",
-    },
-
-    {
-      id: 3,
-      title: "shoes",
-      price: 300,
-      category: "shoes",
-    }
-  ]
 
   const [loading, setLoading] = useState(true)
   const [product, setProduct] = useState([])
@@ -34,18 +13,16 @@ export const ItemDetailContainer = () => {
   const { productId } = useParams()
 
   useEffect(() => {
-    const request = new Promise((res, rej) => {
-      setTimeout(() => {
-        res(prods)
-      }, 2000)
-    })
+    const productsCollection = collection(db, "products")
+    const request = getDoc(doc(productsCollection, productId))
 
     request
-      .then((product) => {
-        setProduct(product.find(product => product.id == productId))
-      }
-      )
-
+      .then(res => {
+        setProduct(res.docs.map(doc => doc.data())[0])
+        setProduct(res.doc[0].data().id)
+        console.log(product)
+        })
+        
       .catch((error) => {
         console.log(error)
       })

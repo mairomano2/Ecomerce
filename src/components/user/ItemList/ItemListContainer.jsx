@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import { db } from "../firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import "../styles/ItemListContainer/ItemListContainer.css"
+import { type } from "@testing-library/user-event/dist/type"
 
 export const ItemListContainer = () => {
 
@@ -52,3 +53,5 @@ export const ItemListContainer = () => {
     </main>
   )
 }
+
+//TODO ver de optimizar el codigo repetido en el use effect
