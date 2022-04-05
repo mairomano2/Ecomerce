@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { context } from "./context/CartContext"
 import { Footer } from "./Footer"
+import "./styles/ItemListContainer/ItemListContainer.css"
 
 export const Cart = () => {
 
@@ -18,7 +19,7 @@ export const Cart = () => {
         <>
           {cart.map((product) =>
           (
-            <div key={product.id}>
+            <div className="card" key={product.id}>
               <p>{product.title}</p>
               <p>Precio: ${product.price}</p>
               <p>Cantidad: {product.quantity}</p>

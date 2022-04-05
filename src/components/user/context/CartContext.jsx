@@ -10,10 +10,10 @@ export const ContextProvider = ({ children }) => {
   const total = cart.reduce((previousTotal, currentProduct) => previousTotal + (currentProduct.price * currentProduct.quantity), 0)
   const quantity = cart.reduce((previousQuantity, currentProduct) => previousQuantity + currentProduct.quantity, 0)
   
-
   const isInCart = (id) => {
     return cart.some((product) => product.id === id)
   }
+  // console.log(product.id)
 
   const addItem = (product, quantity) => {
     const qntAdded = { ...product, quantity }

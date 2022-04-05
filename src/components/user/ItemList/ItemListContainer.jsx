@@ -19,9 +19,10 @@ export const ItemListContainer = () => {
     if (!categoryId) {
       const productsCollection = collection(db, "products")
       const request = getDocs(productsCollection)
+
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
 
-        .catch((error) => { console.log(error) })
+        .catch((error) => console.log(error) )
 
         .finally(() => setLoading(false))
     } else {
@@ -31,6 +32,7 @@ export const ItemListContainer = () => {
 
       request
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
+        
         .catch((error) => { console.log(error) })
 
         .finally(() => setLoading(false))

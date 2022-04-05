@@ -14,14 +14,11 @@ export const ItemDetailContainer = () => {
 
   useEffect(() => {
     const productsCollection = collection(db, "products")
-    // const filter = doc(productsCollection, "")
     const request = getDoc(doc(productsCollection, productId))
-    console.log(request)
 
     request
-      .then(res => {
-        setProduct(res.data())
-        })
+      .then(res => setProduct(res.data({id: productId, ...res})))
+      .then(res => console.log(res.doc.id))
         
       .catch((error) => {
         console.log(error)
@@ -37,3 +34,5 @@ export const ItemDetailContainer = () => {
     </div>
   )
 }
+
+//TODO falta hacer que se agregue el id autogenerado en el .then
