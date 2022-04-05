@@ -36,7 +36,7 @@ export const ContextProvider = ({ children }) => {
     setCart([])
   }
 
-  console.log(cart)
+  // console.log(cart)
 
   const value = {
     cart: cart,

@@ -1,3 +1,5 @@
+import { db } from "./firebase"
+import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { context } from "./context/CartContext"
@@ -7,6 +9,26 @@ import "./styles/ItemListContainer/ItemListContainer.css"
 export const Cart = () => {
 
   const { cart, total, removeItem, clearCart } = useContext(context)
+
+  const finishPurchase = () => {
+    const order = {
+      buyer: {
+        name: "",
+        phone: "",
+        mail: ""
+      },
+      items: cart,
+      date: serverTimestamp(),
+      total: total
+    }
+    const orderCollection = collection(db, "order")
+    const request = addDoc(orderCollection, order)
+
+    request
+      .then(res => console.log(res))
+      .catch(error => console.log(error))
+  }
+
 
   return (
     <div className="landing">
@@ -20,6 +42,7 @@ export const Cart = () => {
           {cart.map((product) =>
           (
             <div className="card" key={product.id}>
+              <p>id :{product.id}</p>
               <p>{product.title}</p>
               <p>Precio: ${product.price}</p>
               <p>Cantidad: {product.quantity}</p>
@@ -29,6 +52,7 @@ export const Cart = () => {
           )
           )}
           <button onClick={clearCart}>Borrar todos los productos</button>
+          <button onClick={finishPurchase}>Terminar compra</button>
         </>
       }
       <Footer />
@@ -37,3 +61,6 @@ export const Cart = () => {
 
   )
 }
+//TODO hacer un formulario para que no esten harcodeados y que envie los datos obtenidos del form
+// ver de actualizar stock con la funcion updatedoc. antes de agregar la cantidad que chequee si hay stock
+//ver de agregar confirmacion de compra con un modal o algo similar

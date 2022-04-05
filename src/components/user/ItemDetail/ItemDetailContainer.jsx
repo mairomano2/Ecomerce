@@ -18,8 +18,8 @@ export const ItemDetailContainer = () => {
 
     request
       .then(res => setProduct(res.data({id: productId, ...res})))
-      .then(res => console.log(res.doc.id))
-        
+      .then(res => console.log(res.doc.id)) 
+
       .catch((error) => {
         console.log(error)
       })
