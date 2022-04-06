@@ -22,7 +22,7 @@ export const ItemListContainer = () => {
 
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
 
-        .catch((error) => console.log(error) )
+        .catch((error) => console.log(error))
 
         .finally(() => setLoading(false))
     } else {
@@ -32,7 +32,7 @@ export const ItemListContainer = () => {
 
       request
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
-        
+
         .catch((error) => { console.log(error) })
 
         .finally(() => setLoading(false))
@@ -52,3 +52,4 @@ export const ItemListContainer = () => {
 }
 
 //TODO ver de optimizar el codigo repetido en el use effect
+// agregar modal que muestre el error

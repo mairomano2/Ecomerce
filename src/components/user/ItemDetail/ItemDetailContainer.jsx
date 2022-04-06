@@ -17,16 +17,15 @@ export const ItemDetailContainer = () => {
     const request = getDoc(doc(productsCollection, productId))
 
     request
-      .then(res => setProduct({...res.data(), id: res.id}))
-      
+      .then(res => setProduct({ ...res.data(), id: res.id }))
+
       .catch((error) => {
         console.log(error)
       })
-      
+
       .finally(() => setLoading(false),
-        console.log(product)
-      )
-      
+    )
+
 
   }, [productId])
 

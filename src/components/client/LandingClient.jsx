@@ -4,11 +4,14 @@ import costume from "./assets/costume.png"
 import wand from "./assets/wand.png"
 import hand from "./assets/hand.png"
 import price from "./assets/price.png"
+import { NavbarClient } from "./NavbarClient"
+import { FooterClient } from "./FooterClient"
 import "./styles/landing/landing.css"
 
 export const LandingClient = () => {
   return (
     <main>
+      <NavbarClient />
       <section className="hero">
         <div className="heroText">
           <h1 className="title heroTitle">Crea tu propia tienda online</h1>
@@ -82,6 +85,7 @@ export const LandingClient = () => {
           <button type="submit" id="sumbit" className="formButton">Enviar</button>
         </form>
       </section>
+      <FooterClient />
     </main>
   )
 }

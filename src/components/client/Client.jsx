@@ -1,15 +1,16 @@
-import { NavbarClient } from "./NavbarClient"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { LandingClient } from "./LandingClient"
-import { FooterClient } from "./FooterClient"
+import { CreateUser } from "./registerForms/CreateUser"
+import { ErrorPage } from "../errorPage/ErrorPage"
 
 export const Client = () => {
-  <>
-    <NavbarClient />
-    <LandingClient />
-    <FooterClient />
-  </>
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/landing" element={<LandingClient />} />
+        <Route path="/registrarse" element={<CreateUser />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-{/* <CreateUser />
-      <LogIn />
-      <Payment /> */}
