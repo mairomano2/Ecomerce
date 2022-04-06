@@ -17,14 +17,16 @@ export const ItemDetailContainer = () => {
     const request = getDoc(doc(productsCollection, productId))
 
     request
-      .then(res => setProduct(res.data({id: productId, ...res})))
-      .then(res => console.log(res.doc.id)) 
-
+      .then(res => setProduct({...res.data(), id: res.id}))
+      
       .catch((error) => {
         console.log(error)
       })
-
-      .finally(() => setLoading(false))
+      
+      .finally(() => setLoading(false),
+        console.log(product)
+      )
+      
 
   }, [productId])
 
@@ -34,5 +36,3 @@ export const ItemDetailContainer = () => {
     </div>
   )
 }
-
-//TODO falta hacer que se agregue el id autogenerado en el .then
