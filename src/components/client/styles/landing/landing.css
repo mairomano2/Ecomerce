@@ -58,6 +58,7 @@
 }
 
 .hero .heroText .heroButton {
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -67,7 +68,6 @@
   border-style: solid;
   border-width: 2px;
   border-color: #6f5490;
-  margin-top: 40px;
 }
 
 .hero .heroText .heroButton:hover {
@@ -133,6 +133,7 @@
   background-color: #b0e6ff;
   padding: 20px;
   border-radius: 20px;
+  z-index: 1;
 }
 
 .info .card .cardHeader {
@@ -206,6 +207,7 @@
 }
 
 .price .priceButton {
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -215,7 +217,6 @@
   border-style: solid;
   border-width: 2px;
   border-color: #6f5490;
-  margin-top: 40px;
 }
 
 .price .priceButton:hover {
@@ -283,6 +284,7 @@
 }
 
 .contact .form .formButton {
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -292,7 +294,6 @@
   border-style: solid;
   border-width: 2px;
   border-color: #6f5490;
-  margin-top: 40px;
 }
 
 .contact .form .formButton:hover {

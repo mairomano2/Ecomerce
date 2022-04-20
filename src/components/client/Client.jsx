@@ -7,7 +7,7 @@ export const Client = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/landing" element={<LandingClient />} />
+        <Route path="/" element={<LandingClient />} />
         <Route path="/registrarse" element={<CreateUser />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

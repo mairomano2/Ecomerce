@@ -10,8 +10,7 @@ export const ErrorPage = () => {
         <div>
           <h1 className="title">Oops!</h1>
           <p className="subtitle">No pudimos encontrar la pagina que estas buscando.</p>
-          <p className="text"></p>
-          <Link to="/landing" className="button">Ir a la pagina principal</Link>
+          <Link to="/" className="button">Ir a la pagina principal</Link>
           <p className="text">Error code: 404</p>
         </div>
         <img src={errorImage} alt="" />

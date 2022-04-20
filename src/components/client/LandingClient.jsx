@@ -7,6 +7,9 @@ import price from "./assets/price.png"
 import { NavbarClient } from "./NavbarClient"
 import { FooterClient } from "./FooterClient"
 import "./styles/landing/landing.css"
+import AOS from 'aos';
+import 'aos/dist/aos.css'
+AOS.init();
 
 export const LandingClient = () => {
   return (
@@ -27,28 +30,28 @@ export const LandingClient = () => {
           <p className="text">Tiendita es una plataforma pensada para que diseñes y administres tu negocio online de forma simple y organizda. Creandote una cuenta podras:</p>
         </div>
         <div className="cardContainer">
-          <div className="card">
+          <div className="card" data-aos="fade-up">
             <div className="cardHeader">
               <img src={data} alt="" />
               <h3 className="subtitle">Administrable</h3>
             </div>
             <p className="text">Tu tienda va a contar con un panel para administrar tu pagos, pedidos y stock.</p>
           </div>
-          <div className="card">
+          <div className="card" data-aos="fade-up">
             <div className="cardHeader">
               <img src={costume} alt="" />
               <h3 className="subtitle">Costumizable</h3>
             </div>
             <p className="text">Podes elegir entre todos nuestros templates para adaptar tu pagina a la estetica de tu emprendimiento.</p>
           </div>
-          <div className="card">
+          <div className="card" data-aos="fade-up">
             <div className="cardHeader">
               <img src={wand} alt="" />
               <h3 className="subtitle">Atractiva</h3>
             </div>
             <p className="text">Contamos con todas las herramientas para que tu tienda sea atractiva e intuitiva para tus clientes</p>
           </div>
-          <div className="card">
+          <div className="card" data-aos="fade-up">
             <div className="cardHeader">
               <img src={hand} alt="" />
               <h3 className="subtitle">Autogestionable</h3>
@@ -58,14 +61,14 @@ export const LandingClient = () => {
         </div>
       </section>
 
-      <section className="price">
-        <div className="priceContainer">
+      <section className="price" >
+        <div className="priceContainer" data-aos="fade-right">
           <h2 className="priceSubtitle">Precio unico</h2>
           <p className="priceTitle">$599</p>
           <p className="priceSubtitle">Finales por mes y sin comision por venta</p>
           <p className="priceButton">Empezar</p>
         </div>
-        <img src={price} className="priceImg" alt="" />
+        <img src={price} className="priceImg" alt="" data-aos="fade-left" />
       </section>
 
       <section className="contact">

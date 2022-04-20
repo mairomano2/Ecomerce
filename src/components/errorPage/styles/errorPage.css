@@ -21,8 +21,7 @@
 }
 
 .errorPage {
-  height: 90vh;
-  padding-top: 60px;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -40,6 +39,7 @@
 }
 
 .errorPage .button {
+  text-decoration: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -49,8 +49,6 @@
   border-style: solid;
   border-width: 2px;
   border-color: #6f5490;
-  margin-top: 40px;
-  margin: 10px 0;
 }
 
 .errorPage .button:hover {

@@ -4,7 +4,7 @@ import "./styles/Navbar/Navbar.css";
 export const NavbarClient = () => {
   return (
     <nav>
-      <Link to="/landing">
+      <Link to="/">
         <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
       </Link>
       <a href="">Que ofrecemos</a>

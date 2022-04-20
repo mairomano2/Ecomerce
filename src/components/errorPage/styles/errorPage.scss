@@ -1,8 +1,7 @@
 @import "../../client/styles/variables/variables";
 
 .errorPage{
-  height: 90vh;
-  padding-top: 60px;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -11,8 +10,7 @@
 
   .button{
     @include button;
-    margin: 10px 0;
-  }
+}
 
   .button:hover{
     @include buttonHover
