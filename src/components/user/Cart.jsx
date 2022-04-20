@@ -56,12 +56,7 @@ export const Cart = () => {
         </>
       }
       <Footer />
-
     </div>
-
   )
 }
-//TODO hacer un formulario para que no esten harcodeados y que envie los datos obtenidos del form
-// ver de actualizar stock con la funcion updatedoc. antes de agregar la cantidad que chequee si hay stock
-//ver de agregar confirmacion / error de compra con un modal o algo similar
-//cuando se termine la compra que borre carrito
+

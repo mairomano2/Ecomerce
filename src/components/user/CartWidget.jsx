@@ -4,9 +4,7 @@ import { context } from "./context/CartContext"
 
 export const CartWidget = () => {
   const { quantity } = useContext(context)
-
   
-
   return (
     <div>
       <img src={cartImg} />

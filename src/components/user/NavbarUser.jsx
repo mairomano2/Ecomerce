@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import "../client/styles/Navbar/Navbar.css"
 
 export const NavbarUser = () => {
-  return(
+  return (
     <nav>
       <Link to="/">
-        <img src="https://img.icons8.com/material-sharp/24/000000/home.png"/>
+        <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
       </Link>
       <Link to="category/remeras">Remeras</Link>
       <Link to="category/pilusos">Pilusos</Link>

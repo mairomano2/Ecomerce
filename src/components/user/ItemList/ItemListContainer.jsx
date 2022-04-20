@@ -50,6 +50,3 @@ export const ItemListContainer = () => {
     </main>
   )
 }
-
-//TODO ver de optimizar el codigo repetido en el use effect
-// agregar modal que muestre el error
