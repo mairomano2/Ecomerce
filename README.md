@@ -20,5 +20,5 @@ Este proyecto simula una página de venta de servicios de tiendas prearmadas par
 3. Ejecutar `npm start` para iniciar en el navegador
 
 ##Link
-Entrando al siguiente [link]() se puede visualizar la app
+Entrando al siguiente [link](https://ecomerce-theta.vercel.app/) se puede visualizar la app
 
