@@ -1,34 +1,14 @@
-import { db } from "./firebase"
-import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { context } from "./context/CartContext"
 import { Footer } from "./Footer"
+import { FinishPurchase } from "./FinishPurchase"
 import "./styles/ItemListContainer/ItemListContainer.css"
 
 export const Cart = () => {
 
   const { cart, total, removeItem, clearCart } = useContext(context)
-
-  const finishPurchase = () => {
-    const order = {
-      buyer: {
-        name: "",
-        phone: "",
-        mail: ""
-      },
-      items: cart,
-      date: serverTimestamp(),
-      total: total
-    }
-    const orderCollection = collection(db, "order")
-    const request = addDoc(orderCollection, order)
-
-    request
-      .then(res => console.log(res))
-      .catch(error => console.log(error))
-  }
-
+  console.log(cart)
 
   return (
     <div className="landing">
@@ -52,7 +32,7 @@ export const Cart = () => {
           )
           )}
           <button onClick={clearCart}>Borrar todos los productos</button>
-          <button onClick={finishPurchase}>Terminar compra</button>
+          <Link to="/finishPurchase">Confirmar compra</Link>
         </>
       }
       <Footer />

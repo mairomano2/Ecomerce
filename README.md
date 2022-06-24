@@ -12,6 +12,7 @@ Este proyecto simula una página de venta de servicios de tiendas prearmadas par
 *Interfaz realizada con ReactJS - Create React App -v 17.0.2
 *Ruteo con React Router Dom -v 6.2.2
 *Animaciones de la landing del client con AOS -v 2.3.4 
+*React notifications -v 1.7.3
 
 ##Instalación y configuración
 1. Clonar el repositorio

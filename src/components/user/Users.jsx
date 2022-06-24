@@ -2,6 +2,7 @@ import { NavbarUser } from "./NavbarUser"
 import { ItemListContainer } from "./ItemList/ItemListContainer"
 import { ItemDetailContainer } from "./ItemDetail/ItemDetailContainer"
 import { Cart } from "./Cart"
+import { FinishPurchase } from "./FinishPurchase"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ContextProvider } from "./context/CartContext"
 import { ErrorPage } from "../errorPage/ErrorPage"
@@ -17,6 +18,7 @@ export const Users = () => {
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/productDetail/:productId" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/finishPurchase" element={<FinishPurchase />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter >
