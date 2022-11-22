@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { ItemList } from "./ItemList"
 import { Footer } from "../Footer"
 import { useParams } from "react-router-dom"
-import { db } from "../firebase"
+import { db } from "../../db/firebase"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import "../styles/ItemListContainer/ItemListContainer.css"
 import { type } from "@testing-library/user-event/dist/type"
@@ -19,7 +19,7 @@ export const ItemListContainer = () => {
     if (!categoryId) {
       const productsCollection = collection(db, "products")
       const request = getDocs(productsCollection)
-
+      request
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
 
         .catch((error) => console.log(error))
@@ -32,9 +32,7 @@ export const ItemListContainer = () => {
 
       request
         .then(res => setProducts(res.docs.map(doc => ({ id: doc.id, ...doc.data() }))))
-
         .catch((error) => { console.log(error) })
-
         .finally(() => setLoading(false))
     }
   }, [categoryId])

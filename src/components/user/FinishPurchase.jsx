@@ -1,4 +1,4 @@
-import { db } from "./firebase"
+import { db } from "../db/firebase"
 import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { useContext, useState } from "react"
 import { context } from "./context/CartContext"

@@ -8,8 +8,6 @@ import "./styles/ItemListContainer/ItemListContainer.css"
 export const Cart = () => {
 
   const { cart, total, removeItem, clearCart } = useContext(context)
-  console.log(cart)
-
   return (
     <div className="landing">
       {!!total && <p>Total: {total}</p>}

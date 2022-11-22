@@ -9,7 +9,6 @@ import { ErrorPage } from "../errorPage/ErrorPage"
 
 export const Users = () => {
   return (
-
     <ContextProvider>
       <BrowserRouter >
         <NavbarUser />

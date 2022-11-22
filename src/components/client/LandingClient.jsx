@@ -76,7 +76,7 @@ export const LandingClient = () => {
           <h2 className="title">¿Tenes alguna duda?</h2>
           <p className="subtitle">Escribinos aca!</p>
         </div>
-        <form action="#" className="form">
+        <form className="form">
           <label for="name">
             <input required className="input" type="text" id="name" placeholder="Tu nombre" />
           </label>
