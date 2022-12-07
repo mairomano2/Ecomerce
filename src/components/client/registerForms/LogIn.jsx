@@ -4,7 +4,7 @@ import { db } from "../../db/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
 import { useContext } from "react";
-import { clientContext } from "../context/ClientContext";
+import { adminContext } from "../context/ClientContext";
 
 export const LogIn = () => {
   const {
@@ -13,10 +13,24 @@ export const LogIn = () => {
     formState: { errors },
   } = useForm();
 
-  const { logged, setLogged } = useContext(clientContext);
+  const { logged, setLogged } = useContext(adminContext);
 
-  const userExists = (res, data) => {
-    const dbResponse = res.docs.map((doc) => doc.data());
+  const logUser = async (data) => {
+    try {
+      const usersCollection = await collection(db, "users");
+      const filter = await query(usersCollection, where("user", "==", data.user));
+      const request = await getDocs(filter);
+
+      await userExists(request, data);
+    }
+
+    catch (err) {
+      toast.error("No se encontró un usuario con ese nombre");
+    }
+  };
+
+  const userExists = (request, data) => {
+    const dbResponse = request.docs.map((doc) => doc.data());
     const userName = dbResponse[0].user;
     const password = dbResponse[0].password;
 
@@ -25,16 +39,6 @@ export const LogIn = () => {
     } else {
       toast.error("El usuario o la contraseña son incorrectos");
     }
-  };
-
-  const logUser = (data) => {
-    const usersCollection = collection(db, "users");
-    const filter = query(usersCollection, where("user", "==", data.user));
-    const request = getDocs(filter);
-    request
-      .then((res) => userExists(res, data))
-      .catch((err) => toast.error(`hubo un error. Err: ${err}`));
-    setLogged((logged) => !logged);
   };
 
   return (

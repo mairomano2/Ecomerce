@@ -1,13 +1,12 @@
 import { createContext, useState } from "react";
-import { CreateUser } from "../registerForms/CreateUser";
 
-export const clientContext = createContext();
+export const adminContext = createContext();
 
 export const ClientContext = ({ children }) => {
   const [logged, setLogged] = useState(false);
 
-  const value = {logged: logged, setLogged: setLogged }
-  const { Provider } = clientContext
+  const value = {logged, setLogged }
+  const { Provider } = adminContext
   console.log(logged)
 
   return (

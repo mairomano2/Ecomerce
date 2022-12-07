@@ -3,12 +3,19 @@ import { Link } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { db } from "../../db/firebase";
-import { doc, setDoc, collection, query, where, getDocs } from "firebase/firestore";
+import {
+  doc,
+  setDoc,
+  collection,
+  query,
+  where,
+  getDocs,
+} from "firebase/firestore";
 import { useForm } from "react-hook-form";
-import { clientContext } from "../context/ClientContext";
+import { adminContext } from "../context/ClientContext";
 
 export const CreateUser = () => {
-  const { logged, setLogged } = useContext(clientContext);
+  const { logged, setLogged } = useContext(adminContext);
 
   const {
     register,
@@ -17,50 +24,71 @@ export const CreateUser = () => {
     formState: { errors },
   } = useForm({ reValidateMode: "onSubmit" });
 
-  const userExist = data => {
-    const usersCollection = collection(db, "users");
-    const filter = query(
-      usersCollection,
-      where("user", "==", data.user),
-      where("email", "==", data.email)
-    );
-    const request = getDocs(filter);
-    request
-      .then((res) => res.docs.map((doc) => console.log(doc.data())))
-      .catch(() => toast.error("Hubo un error. Por favot intente de nuevo"))
+  // const userExist = (data) => {
+  //   const usersCollection = collection(db, "users");
+  //   const filter = query(
+  //     usersCollection,
+  //     where("user", "==", data.user),
+  //     where("email", "==", data.email)
+  //   );
+  //   const request = getDocs(filter);
+  //   request
+  //     .then((res) => {return res.docs.length})
+  //     .catch((err) => console.log(err));
+  // };
+
+    const userExist = async (data) => {
+      try{
+        const usersCollection = await collection(db, "users");
+        const filter = await query(
+          usersCollection,
+          where("user", "==", data.user),
+          where("email", "==", data.email)
+        );
+        const request = await getDocs(filter);
+        return request.docs.length
+      }
+      catch(err){
+        console.log(err)
+      }
   };
 
-  const sendData = (data) => {
+  const sendData = async (data) => {
     if (data.password === data.repeatedPassword) {
       //envia la info y crea el obj
-      const request = setDoc(doc(db, "users", data.user), {
-        ...data,
-        products: [],
-      });
-      request
-        .then(toast.success("Se creó su usuario con éxito"))
-        .then(reset())
-        .then(setLogged((logged) => !logged))
-        .catch((err) =>
-          toast.error(`Hubo un problema al crear tu usuario. Error: ${err}`)
-        );
+      try{
+        await setDoc(doc(db, "users", data.user), {
+          ...data,
+          products: [],
+          orders: [],
+        });
+        await toast.success("Se creó su usuario con éxito")
+        await setLogged((logged) => !logged)
+        await reset()
+      }
+      catch(err){
+        console.error(err)
+      }
+    } else {
+      toast.error("Las contraseñas no coinciden")
     }
   };
 
-  const hola = data => {
-    if (userExist(data)){
-      console.log("hola")
+  const createUserManager = async (data) => {
+    const info = await userExist(data)
+    if (info === 0){
+      await sendData(data)
     } else {
-      console.log("no llego nada")
+      toast.error("ese usuario ya existe")
     }
-  }
+  };
 
   return (
     <div>
       <div>
         <h1>Crea tu usuario en La tiendita!</h1>
       </div>
-      <form onSubmit={handleSubmit(hola)}>
+      <form onSubmit={handleSubmit(createUserManager)}>
         <input
           {...register("email", { required: true })}
           placeholder="Escribe tu mail"

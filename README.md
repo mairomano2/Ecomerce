@@ -2,7 +2,7 @@
 Este proyecto simula una página de venta de servicios de tiendas prearmadas para emprendedores.
 
 ## Secciones del proyecto
-*User: está sección muestra cómo quedaría la página de un emprendedor (en este caso de venta de prendas bordadas). Contiene el home con todos los productos, el detalle del producto y el carrito.
+* User: está sección muestra cómo quedaría la página de un emprendedor (en este caso de venta de prendas bordadas). Contiene el home con todos los productos, el detalle del producto y el carrito.
 
 * Client: esta seccion del proyecto no está terminada. Contiene la landing de La tiendita, formularios de registro y creación y configuración de páginas de emprendedores.
 
