@@ -15,7 +15,7 @@ import { useForm } from "react-hook-form";
 import { adminContext } from "../context/ClientContext";
 
 export const CreateUser = () => {
-  const { logged, setLogged } = useContext(adminContext);
+  const { setLogged } = useContext(adminContext);
 
   const {
     register,
@@ -23,19 +23,6 @@ export const CreateUser = () => {
     reset,
     formState: { errors },
   } = useForm({ reValidateMode: "onSubmit" });
-
-  // const userExist = (data) => {
-  //   const usersCollection = collection(db, "users");
-  //   const filter = query(
-  //     usersCollection,
-  //     where("user", "==", data.user),
-  //     where("email", "==", data.email)
-  //   );
-  //   const request = getDocs(filter);
-  //   request
-  //     .then((res) => {return res.docs.length})
-  //     .catch((err) => console.log(err));
-  // };
 
     const userExist = async (data) => {
       try{
@@ -62,9 +49,9 @@ export const CreateUser = () => {
           products: [],
           orders: [],
         });
-        await toast.success("Se creó su usuario con éxito")
-        await setLogged((logged) => !logged)
-        await reset()
+        toast.success("Se creó su usuario con éxito")
+        setLogged((logged) => !logged)
+        reset()
       }
       catch(err){
         console.error(err)

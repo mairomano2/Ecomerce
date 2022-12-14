@@ -13,17 +13,15 @@ export const LogIn = () => {
     formState: { errors },
   } = useForm();
 
-  const { logged, setLogged } = useContext(adminContext);
+  const { setLogged } = useContext(adminContext);
 
   const logUser = async (data) => {
     try {
       const usersCollection = await collection(db, "users");
       const filter = await query(usersCollection, where("user", "==", data.user));
       const request = await getDocs(filter);
-
-      await userExists(request, data);
+      userExists(request, data);
     }
-
     catch (err) {
       toast.error("No se encontró un usuario con ese nombre");
     }
