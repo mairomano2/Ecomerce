@@ -12,10 +12,11 @@ import {
   getDocs,
 } from "firebase/firestore";
 import { useForm } from "react-hook-form";
-import { adminContext } from "../context/ClientContext";
+import { LoggedContext } from "../../../context/loggedContext";
+import { NavbarClient } from "../NavbarClient"
 
 export const CreateUser = () => {
-  const { setLogged } = useContext(adminContext);
+  const { setLogged } = useContext(LoggedContext);
 
   const {
     register,
@@ -72,6 +73,7 @@ export const CreateUser = () => {
 
   return (
     <div>
+      <NavbarClient />
       <div>
         <h1>Crea tu usuario en La tiendita!</h1>
       </div>
@@ -104,7 +106,7 @@ export const CreateUser = () => {
       </form>
       <div>
         <p>
-          ¿Ya tenés una cuenta? <Link to={"/login"}>Ingresa!</Link>
+          ¿Ya tenés una cuenta? <Link to={"/client/login"}>Ingresa!</Link>
         </p>
       </div>
       <ToastContainer theme="colored" draggablePercent={80} />

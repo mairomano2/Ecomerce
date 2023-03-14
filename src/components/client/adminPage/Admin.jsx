@@ -1,9 +1,18 @@
+import { useContext, useEffect } from "react";
+import { db } from "../../db/firebase";
+import { useNavigate } from "react-router-dom";
+import { LoggedContext } from "../../../context/loggedContext";
+import { NavbarClient } from "../NavbarClient";
 
 export const Admin = () => {
-  return (
-    // 1- ver de que usuario es la cuenta
-    // 2- traer los productos y ordenes de esa cuenta
-    // 3- si no tiene ordenes mostrar un boton de crear orden
-    <div>Admin</div>
+  const { logged } = useContext(LoggedContext);
+  console.log("context", logged) //undefined
+  const navigate = useNavigate()
+ 
+  return(
+    <div>
+      <NavbarClient />
+      {logged ? <Admin /> : navigate("/client/login")}
+    </div>
   )
-}
+};

@@ -1,37 +1,37 @@
-import { useEffect, useState } from "react"
-import { ItemDetail } from "./ItemDetail"
-import { useParams } from "react-router-dom"
-import { db } from "../../db/firebase"
-import { collection, doc, getDoc } from "firebase/firestore"
-import "../styles/ItemDetailContainer/ItemDetailContainer.css"
+import { useEffect, useState } from "react";
+import { ItemDetail } from "./ItemDetail";
+import { useParams } from "react-router-dom";
+import { db } from "../../db/firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
+import "../styles/ItemDetailContainer/ItemDetailContainer.css";
 
 export const ItemDetailContainer = () => {
+  const [loading, setLoading] = useState(true);
+  const [product, setProduct] = useState([]);
 
-  const [loading, setLoading] = useState(true)
-  const [product, setProduct] = useState([])
-
-  const { productId } = useParams()
+  const { productId } = useParams();
 
   useEffect(() => {
-    const productsCollection = collection(db, "products")
-    const request = getDoc(doc(productsCollection, productId))
+    const productsCollection = collection(db, "products");
+    const request = getDoc(doc(productsCollection, productId));
 
     request
-      .then(res => setProduct({ ...res.data(), id: res.id }))
+      .then((res) => setProduct({ ...res.data(), id: res.id }))
 
       .catch((error) => {
-        console.log(error)
+        console.log(error);
       })
 
-      .finally(() => setLoading(false),
-    )
-
-
-  }, [productId])
+      .finally(() => setLoading(false));
+  }, [productId]);
 
   return (
     <div className="landing">
-      {loading ? <p className="text">Cargando productos...</p> : <ItemDetail key={product.id} product={product} />}
+      {loading ? (
+        <p className="text">Cargando productos...</p>
+      ) : (
+        <ItemDetail key={product.id} product={product} />
+      )}
     </div>
-  )
-}
+  );
+};

@@ -8,9 +8,9 @@ export const NavbarUser = () => {
       <Link to="/">
         <img src="https://img.icons8.com/material-sharp/24/000000/home.png" />
       </Link>
-      <Link to="category/remeras">Remeras</Link>
-      <Link to="category/pilusos">Pilusos</Link>
-      <Link to="cart">
+      <Link to="/tienda/category/remeras">Remeras</Link>
+      <Link to="/tienda/category/pilusos">Pilusos</Link>
+      <Link to="/tienda/cart">
         <CartWidget />
       </Link>
     </nav>

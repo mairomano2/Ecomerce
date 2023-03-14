@@ -1,5 +1,5 @@
 import { FooterClient } from "../client/FooterClient"
-import errorImage from "../client/assets/notFound.png"
+import errorImage from "../../images/notFound.png"
 import { Link } from "react-router-dom";
 import "./styles/errorPage.css"
 

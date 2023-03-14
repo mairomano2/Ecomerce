@@ -1,20 +1,19 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { context } from "./context/CartContext"
+import { CartContext } from "../../context/cartContext"
 import { Footer } from "./Footer"
-import { FinishPurchase } from "./FinishPurchase"
 import "./styles/ItemListContainer/ItemListContainer.css"
 
 export const Cart = () => {
 
-  const { cart, total, removeItem, clearCart } = useContext(context)
+  const { cart, total, removeItem, clearCart } = useContext(CartContext)
   return (
     <div className="landing">
       {!!total && <p>Total: {total}</p>}
       {cart.length === 0 ?
         <div>
           <p className="text">No hay nada en tu carrito</p>
-          <Link to="/">Ver productos</Link>
+          <Link to="/tienda">Ver productos</Link>
         </div> :
         <>
           {cart.map((product) =>
@@ -30,7 +29,7 @@ export const Cart = () => {
           )
           )}
           <button onClick={clearCart}>Borrar todos los productos</button>
-          <Link to="/finishPurchase">Confirmar compra</Link>
+          <Link to="/tienda/finishPurchase">Confirmar compra</Link>
         </>
       }
       <Footer />

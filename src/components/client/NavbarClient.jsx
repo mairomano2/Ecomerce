@@ -10,7 +10,7 @@ export const NavbarClient = () => {
       <a href="">Que ofrecemos</a>
       <a href="">Precio</a>
       <a href="">Contacto</a>
-      <Link to="/registrarse">
+      <Link to="/client/registrarse">
         <p>Registrate</p>
       </Link>
     </nav>

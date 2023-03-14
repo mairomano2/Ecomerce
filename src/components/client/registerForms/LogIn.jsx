@@ -1,10 +1,12 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { db } from "../../db/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { toast, ToastContainer } from "react-toastify";
 import { useContext } from "react";
-import { adminContext } from "../context/ClientContext";
+import { LoggedContext } from "../../../context/loggedContext";
+import { NavbarClient } from "../NavbarClient"
 
 export const LogIn = () => {
   const {
@@ -13,7 +15,9 @@ export const LogIn = () => {
     formState: { errors },
   } = useForm();
 
-  const { setLogged } = useContext(adminContext);
+  const { setLogged } = useContext(LoggedContext);
+  console.log("adminContext", LoggedContext)
+  const navigate = useNavigate();
 
   const logUser = async (data) => {
     try {
@@ -34,6 +38,7 @@ export const LogIn = () => {
 
     if (userName === data.user && password === data.password) {
       setLogged(true);
+      navigate("/client/admin");
     } else {
       toast.error("El usuario o la contraseña son incorrectos");
     }
@@ -41,6 +46,7 @@ export const LogIn = () => {
 
   return (
     <div>
+      <NavbarClient />
       <div>
         <h1>Ingresa al panel de control de tu tiendita</h1>
       </div>
@@ -62,10 +68,10 @@ export const LogIn = () => {
         <input type="submit" />
       </form>
       <p>
-        ¿No tenés cuenta? <Link to={"/registrarse"}>Creala!</Link>
+        ¿No tenés cuenta? <Link to={"/client/registrarse"}>Creala!</Link>
       </p>
       <p>
-        <Link to="/recuperarContrasena">Olvidé mi contraseña</Link>
+        <Link to="/client/recuperarContrasena">Olvidé mi contraseña</Link>
       </p>
       <ToastContainer />
     </div>

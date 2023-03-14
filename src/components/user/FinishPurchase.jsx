@@ -1,11 +1,11 @@
 import { db } from "../db/firebase"
 import { collection, serverTimestamp, addDoc } from "firebase/firestore"
 import { useContext, useState } from "react"
-import { context } from "./context/CartContext"
+import { CartContext } from "../../context/cartContext"
 
 export const FinishPurchase = () => {
 
-  const { cart, total, clearCart } = useContext(context)
+  const { cart, total, clearCart } = useContext(CartContext)
 
   const [name, setName] = useState("")
   const [mail, setMail] = useState("")
